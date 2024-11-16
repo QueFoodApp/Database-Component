@@ -48,6 +48,13 @@ def create_tables(conn):
                 PRIMARY KEY (Restaurant_ID, Menu_ID, Food_Name, Food_Description, Food_Price),
                 FOREIGN KEY (Restaurant_ID) REFERENCES Restaurant_Table(Restaurant_ID)
             );''',
+            
+            'Customer_Account_Table': '''
+            CREATE TABLE IF NOT EXIST Customer_Account_Table(
+                Customer_ID INT PRIMARY KEY, 
+                Manager_Account_Name VARCHAR(500) NOT NULL, 
+                Manager_Account_Password VARCHAR(500) NOT NULL
+            );''',
         }
 
         # Execute the create table queries
@@ -153,7 +160,7 @@ def main():
     # Loop through sheet names and insert data for matching table names
     for sheet_name in sheet_names:
         print(f"Inserting data from sheet: {sheet_name}")
-        insert_data_from_excel(conn, sheet_name)  # Insert data from the matched sheet
+        # insert_data_from_excel(conn, sheet_name)  # Insert data from the matched sheet
 
     conn.close()  # Close the connection
 
