@@ -22,3 +22,5 @@ def delete_table():
 # Run the function to delete the table
 if __name__ == "__main__":
     delete_table()
+
+
